@@ -470,6 +470,9 @@ _GetNumberOfDesktops() {
 }
 
 _MoveCurrentWindowToDesktop(n:=1) {
+    if (n == 0) {
+        n := 10
+    }
     activeHwnd := _GetCurrentWindowID()
     DllCall(MoveWindowToDesktopNumberProc, UInt, activeHwnd, UInt, n-1)
 }
